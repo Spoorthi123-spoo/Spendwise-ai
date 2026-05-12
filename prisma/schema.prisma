@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Audit {
+  id        String   @id @default(uuid())
+  tools     Json
+  savings   Float
+  summary   String
+  createdAt DateTime @default(now())
+}
+
+model Lead {
+  id        String   @id @default(uuid())
+  email     String
+  company   String?
+  role      String?
+  createdAt DateTime @default(now())
+}
