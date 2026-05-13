@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
-import { calculateAudit } from "@/lib/audit";
+import { calculateAudit } from "../../../lib/audit";
 
 const prisma = new PrismaClient();
 
@@ -23,6 +23,7 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json(saved);
+
   } catch (error) {
     return NextResponse.json(
       { error: "Something went wrong" },
